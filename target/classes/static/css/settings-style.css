@@ -1,0 +1,135 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #343a40;
+    color: #fff;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.sidebar .logout {
+    color: #dc3545;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+    background: #3498db;
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
+
+/* Settings Container */
+.settings-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+}
+
+.settings-container h2 {
+    text-align: center;
+}
+
+.settings-container label {
+    display: block;
+    margin-top: 10px;
+}
+
+.settings-container input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.settings-container button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+/* Theme Settings */
+.theme-settings {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#dark-mode-toggle {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #222;
+    color: white;
+}
+
+.dark-mode .settings-container {
+    background: #333;
+    color: white;
+}
+
+.dark-mode .navbar {
+    background: #555;
+}
+

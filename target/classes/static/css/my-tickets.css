@@ -1,0 +1,137 @@
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    background-color: #343a40;
+    color: white;
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li a.active {
+    background-color: #007bff;
+    border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #495057;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+/* Table Styling */
+.table {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Priority Colors */
+.priority-badge.low {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.priority-badge.medium {
+    background-color: #ffc107;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.priority-badge.high {
+    background-color: #fd7e14;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.priority-badge.critical {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Status Colors */
+.status-badge.open {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status-badge.in-progress {
+    background-color: #17a2b8;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status-badge.resolved {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Button Styling */
+.btn {
+    border-radius: 5px;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: black;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border: none;
+}
+
+.btn-info:hover {
+    background-color: #138496;
+}

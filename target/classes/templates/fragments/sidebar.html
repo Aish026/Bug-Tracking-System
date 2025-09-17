@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<body>
+<div th:fragment="sidebar">
+    <div class="sidebar">
+        <h2>Bug Tracker</h2>
+        <ul>
+            <!-- Everyone sees -->
+            <li><a th:href="@{/dashboard}"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+            <li><a th:href="@{/bugs}"><i class="bi bi-bug"></i> View Bugs</a></li>
+            <li><a th:href="@{/bugs/report}"><i class="bi bi-plus-circle"></i> Report a Bug</a></li>
+            <li><a th:href="@{/users/settings}"><i class="bi bi-plus-circle"></i> Settings</a></li>
+
+            <!-- USER menu -->
+            <li sec:authorize="hasRole('USER')">
+                <a th:href="@{/bugs/my-reported}"><i class="bi bi-ticket-detailed"></i> My Reported Bugs</a>
+            </li>
+
+            <!-- DEVELOPER menu -->
+            <li sec:authorize="hasRole('DEVELOPER')">
+            	<a th:href="@{/bugs/my-reported}"><i class="bi bi-ticket-detailed"></i> My Reported Bugs</a>
+            </li>
+            <li sec:authorize="hasRole('DEVELOPER')">
+                <a th:href="@{/bugs/my-assigned}"><i class="bi bi-ticket-detailed"></i> Assigned to Me</a>
+            </li>
+
+            <!-- ADMIN menu -->
+            <li sec:authorize="hasRole('ADMIN')">
+                <a th:href="@{/admin/users}"><i class="bi bi-people"></i> Manage Users</a>
+            </li>
+           <!--  <li sec:authorize="hasRole('ADMIN')">
+                <a th:href="@{/admin/developers}"><i class="bi bi-person-badge"></i> Manage Developers</a>
+            </li> -->
+
+            <!-- Logout for all -->
+            <li>
+                <form th:action="@{/logout}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-link logout">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

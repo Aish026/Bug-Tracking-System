@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Bug | Bug Tracker</title>
+    <link rel="stylesheet" th:href="@{/css/bug-style.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+	<div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+    <div class="main-content">
+        <h1>Report a Bug</h1>
+
+        <form th:action="@{/bugs/submit}" th:object="${bug}" method="post">
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input type="text" th:field="*{title}" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea th:field="*{description}" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Priority</label>
+                <select th:field="*{priority}" class="form-select" required>
+                    <option value="" disabled selected>Select Priority</option>
+                    <option value="LOW">Low</option>
+                    <option value="MEDIUM">Medium</option>
+                    <option value="HIGH">High</option>
+                    <option value="CRITICAL">Critical</option>
+                </select>
+            </div>
+
+            <input type="hidden" th:field="*{status}" value="OPEN"/>
+
+            <button type="submit" class="btn btn-success">Submit</button>
+            <a th:href="@{/bugs}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
