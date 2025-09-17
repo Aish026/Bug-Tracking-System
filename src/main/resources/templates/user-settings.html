@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Bug Tracker</title>
+    <link rel="stylesheet" th:href="@{/css/bug-style.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!-- 🔹 Add This -->
+</head>
+<body>
+
+    <div th:replace="fragments/sidebar :: sidebar"></div>
+
+    <div class="main-content">
+        <h1>Settings</h1>
+
+        <form th:action="@{/users/settings/update}" th:object="${settings}" method="post">
+		    <h2>Profile Settings</h2>
+		
+		    <div class="mb-3">
+		        <label for="email" class="form-label">Email</label>
+		        <input type="email" id="email" class="form-control" th:field="*{email}" required>
+		    </div>
+		
+		    <h2>Change Password</h2>
+		
+		    <div class="mb-3">
+		        <label for="currentPassword" class="form-label">Current Password</label>
+		        <input type="password" id="currentPassword" class="form-control" th:field="*{currentPassword}">
+		    </div>
+		
+		    <div class="mb-3">
+		        <label for="newPassword" class="form-label">New Password</label>
+		        <input type="password" id="newPassword" class="form-control" th:field="*{newPassword}">
+		    </div>
+		
+		    <div class="mb-3">
+		        <label for="confirmPassword" class="form-label">Confirm New Password</label>
+		        <input type="password" id="confirmPassword" class="form-control" th:field="*{confirmPassword}">
+		    </div>
+		
+		    <button type="submit" class="btn btn-primary">Update Settings</button>
+		</form>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Developers | Bug Tracker</title>
+    <link rel="stylesheet" th:href="@{/css/bug-style.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Bug Tracker</h2>
+        <ul>
+            <li><a th:href="@{/admin/dashboard}"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+            <li><a th:href="@{/bugs}"><i class="bi bi-bug"></i> All Bugs</a></li>
+            <li><a th:href="@{/bugs/report}"><i class="bi bi-plus-circle"></i> Report a Bug</a></li>
+            <li><a th:href="@{/admin/developers}" class="active"><i class="bi bi-people"></i> Manage Developers</a></li>
+            <li><a th:href="@{/admin/users}"><i class="bi bi-person-badge"></i> Manage Users</a></li>
+            <li>
+                <form th:action="@{/logout}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-link logout">
+                        <i class="bi bi-box-arrow-right"></i> Logout
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Manage Developers</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.role}"></td>
+                    <td>
+                        
+                        <a th:if="${user.role == 'ROLE_USER'}"
+                           th:href="@{/admin/developers/promote/{id}(id=${user.id})}"
+                           class="btn btn-success btn-sm">Promote</a>
+
+                        <a th:if="${user.role == 'ROLE_DEVELOPER'}"
+                           th:href="@{/admin/developers/demote/{id}(id=${user.id})}"
+                           class="btn btn-warning btn-sm">Demote</a>
+
+                        <a th:href="@{/admin/users/delete/{id}(id=${user.id})}"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Delete this user?')">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
